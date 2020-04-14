@@ -3,6 +3,7 @@ from tkinter.ttk import *
 import random
 import pyperclip
 import json
+import wget
 root = Tk()
 
 
@@ -101,6 +102,12 @@ def restart(eordb, e, restartb, exitb, clipL):
 
 	e.pack()
 	eordb.pack()
+
+
+def version_check():
+	if != 
+
+
 
 eordL2 = Label(root, text="Encryption or Decryption")
 eordL2.pack()

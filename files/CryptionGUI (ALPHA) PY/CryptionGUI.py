@@ -4,6 +4,7 @@ import random
 import pyperclip
 import json
 import wget
+import os
 root = Tk()
 
 
@@ -105,6 +106,8 @@ def restart(eordb, e, restartb, exitb, clipL):
 
 
 def version_check():
+	url = "https://raw.githubusercontent.com/Agwebberley/agwebberley.tk/master/files/newestversion.json"
+	wget.download(url, )
 	if != 
 
 

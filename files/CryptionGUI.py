@@ -35,7 +35,7 @@ def Decryption(operation, text, operationL, operationbd, eordb, e):
 	operation1 = int(operation1)
 	operation.forget()
 	new_string = ''
-	for i in range(len(string)-1):
+	for i in range(len(string)):
 		new_string += chr(int(ord(new_string[i]) - operation1))
 	new_stringL = Label(root, text=new_string).pack()
 	clipL = Label(root, text="Decrypted messsage has been copied to your clipboard")

@@ -107,8 +107,24 @@ def restart(eordb, e, restartb, exitb, clipL):
 
 def version_check():
 	url = "https://raw.githubusercontent.com/Agwebberley/agwebberley.tk/master/files/newestversion.json"
-	wget.download(url, )
-	if != 
+	where = os.getcwd
+	wget.download(url, where)
+
+	with open('newestversion.json') as json_file:
+		newestversion = json.load(json_file)
+	with open('version.json') as json_file:
+		version = json.load(json_file)
+
+	if version != newestversion:
+		neednewL = Label(root, text="A new version is availible")
+		neednewL.pack()
+		restartb = Button(root, text="Continue Anyway", command=lambda: restart(eordb, e, restartb, exitb, clipL))
+		restartb.pack()
+		exitb = Button(root, text="Quit", command=root.quit)
+		exitb.pack()
+		os.remove("newestversion.json")
+
+
 
 
 

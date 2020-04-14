@@ -13,7 +13,6 @@ def Encryption(operation, text, operationL, operationbe, eordb, e):
 	string = text.get()
 	operation1 = operation.get()
 	operation1 = int(operation1)
-	str(string)
 	operation.forget()
 	new_string = ""
 	for i in range(len(string)):
@@ -33,12 +32,16 @@ def Decryption(operation, text, operationL, operationbd, eordb, e):
 	operationL.forget()
 	string = text.get()
 	operation1 = operation.get()
+	operation1 = int(operation1)
 	operation.forget()
 	new_string = ''
-	for i in range(len(string)):
+	for i in range(len(string)-1):
 		new_string += chr(int(ord(new_string[i]) - operation1))
 	new_stringL = Label(root, text=new_string).pack()
-	restartb = Button(root, text="Restart", command=lambda: restart(eordb, e, restartb, exitb))
+	clipL = Label(root, text="Decrypted messsage has been copied to your clipboard")
+	pyperclip.copy(new_string)
+	copy = pyperclip.paste()
+	restartb = Button(root, text="Restart", command=lambda: restart(eordb, e, restartb, exitb, clipL))
 	restartb.pack()
 	exitb = Button(root, text="Quit", command=root.quit)
 	exitb.pack()
@@ -77,11 +80,11 @@ def operation(eord, eordb, textL, e, text, textb):
 	textL.forget()
 	textb.forget()
 	text.forget()
-	operation = Entry(root)
-	operation.pack()
 	operationL = Label(root, text="Enter Seed (Must be Int)")
 	operationL.pack()
-
+	operation = Entry(root)
+	operation.pack()
+	
 	if eord == "e" or eord == "encryption":
 		operationbe = Button(root, text="Encrypt", command=lambda: Encryption(operation, text, operationL, operationbe, eordb, e))
 		operationbe.pack()

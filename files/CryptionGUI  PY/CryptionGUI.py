@@ -113,10 +113,10 @@ def version_check():
 
 	with open('newestversion.json') as json_file:
 		newestversion = json.load(json_file)
-	with open('version.json') as json_file:
-		version = json.load(json_file)
 
-	if version != newestversion:
+	version = 1.1
+
+	if version < newestversion:
 		neednewL = Label(root, text="A new version is availible")
 		neednewL.pack()
 		clipL = Label(root, text="placement")

@@ -115,12 +115,13 @@ def version_check():
 
 	with open('newestversion.json') as json_file:
 		newestversion = json.load(json_file)
-	with open('version.json') as json_file:
-		version = json.load(json_file)
 	with open('newestversionexe.json') as json_file:
 		newestversionexe = json.load(json_file)
 
-	if version != newestversionexe:
+	versionexe = 1.1
+	version = 1.1
+
+	if versionexe < newestversionexe:
 		neednewexeL = Label(root, text="New version availible for exe")
 		neednewexeL.pack()
 		clipL = Label(root, text="placement")
@@ -134,7 +135,7 @@ def version_check():
 			os.remove("newestversionexe.json")
 	else:
 
-		if version != newestversion:
+		if version < newestversion:
 			neednewL = Label(root, text="A new version is availible for py")
 			neednewL.pack()
 			clipL = Label(root, text="placement")
